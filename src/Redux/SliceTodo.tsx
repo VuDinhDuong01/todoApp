@@ -76,7 +76,6 @@ export const sliceTodo = createSlice({
         }
       });
     },
-
     deleteOneTodoFilter: (state, action: PayloadAction<string>) => {
       const findIndexTodo = state.filteredList.findIndex(
         (todo) => todo.id === action.payload

@@ -5,9 +5,11 @@ import { useDispatch } from "react-redux";
 import { BsMoon, BsFillSunFill } from "react-icons/bs";
 import { AiOutlineGlobal } from "react-icons/ai";
 import classNames from "classnames";
+
 import { TodoList } from "../TodoList/TodoList";
 import { changeFilterToggle, changeToggle } from "../../Redux/SliceToggle";
 import { filterTodo } from "../../Redux/SliceTodo";
+import { Button } from "../Button/Button";
 
 export const TodoApp = () => {
   const { t } = useTranslation();
@@ -15,11 +17,13 @@ export const TodoApp = () => {
   const [language, setLanguate] = useState("Tiếng Việt");
   const [mode, SetMode] = useState<boolean>(false);
   const [isShow, setIsShow] = useState<boolean>(false);
+
   const dispatch = useDispatch();
   const handleAddStack = () => {
     dispatch(changeToggle(true));
     dispatch(changeFilterToggle(true));
   };
+
   const handleMole = () => {
     SetMode((prev) => !prev);
   };
@@ -28,6 +32,7 @@ export const TodoApp = () => {
     i18n.changeLanguage(lng);
     setLanguate(lng === "en" ? "English" : "Tiếng Việt");
   };
+
 
   const handleShow = () => {
     setIsShow((prev) => !prev);
@@ -97,14 +102,15 @@ export const TodoApp = () => {
         </div>
       </div>
       <div className="w-full flex justify-between items-center px-4 my-5">
-        <button
+        {/* <button
           className="px-2 py-3 flex items-center justify-center bg-[blue] text-[white] rounded-lg font-bold "
           onClick={handleAddStack}
         >
           {t("todo.addStack")}
-        </button>
+        </button> */}
+        <Button  onClick={handleAddStack}> {t("todo.addStack")}</Button>
         <select
-          id="selectOption"
+          
           className="border-none h-[30px]"
           onChange={(e) => {
             dispatch(filterTodo(e.target.value));

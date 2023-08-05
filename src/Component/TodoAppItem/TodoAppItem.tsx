@@ -22,6 +22,7 @@ export const TodoAppItem = ({ todo }: todoItemTypes) => {
   const { filterToggle } = useSelector(
     (state: RootState) => state.changeToogle.toggle
   );
+
   return (
     <div className="flex w-full items-center justify-between bg-[white] px-2 my-2 py-2 rounded-sm cursor-pointer">
       <div className="flex items-center">

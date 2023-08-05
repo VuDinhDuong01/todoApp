@@ -1,6 +1,7 @@
 import { FaTimes } from "react-icons/fa";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import { changeToggle } from "../../Redux/SliceToggle";
 import {
@@ -11,8 +12,8 @@ import {
   startEditTodoFilter,
 } from "../../Redux/SliceTodo";
 import { todo } from "../../types/todo.type";
-import { useTranslation } from "react-i18next";
 import { RootState } from "../../Redux/store";
+import { Button } from "../Button/Button";
 
 export const InputTodo = () => {
   const { t } = useTranslation();
@@ -110,15 +111,8 @@ export const InputTodo = () => {
         </div>
 
         <div className="flex items-center gap-3 py-3">
-          <button className="px-2 py-3 bg-[blue] rounded-lg text-[white] font-semibold">
-            {Todo !== null ? t("todo.edit") : t("todo.add")}
-          </button>
-          <button
-            className="px-2 py-3 bg-[blue] rounded-lg text-[white] font-semibold"
-            onClick={handleDelete}
-          >
-            {t("todo.cancel")}
-          </button>
+           <Button> {Todo !== null ? t("todo.edit") : t("todo.add")}</Button>
+          <Button onClick={handleDelete}> {t("todo.cancel")}</Button>
         </div>
       </form>
     </div>
