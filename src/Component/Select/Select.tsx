@@ -1,14 +1,15 @@
 import React from 'react'
 interface SelectType{
     children:React.ReactNode,
-    onChange:() => void
+    onChange:(e:React.ChangeEvent<HTMLSelectElement>) => void
+    value?:string
 }
 
-export const Select = ({children, onChange}:SelectType) => {
+export const Select = ({children, onChange, value}:SelectType) => {
   return (
     <select
-          
-    className="border-none h-[30px]"
+    value={value}
+    className="border-none h-[45px]"
     // onChange={(e) => {
     //   dispatch(filterTodo(e.target.value));
     //   dispatch(dispatch(changeFilterToggle(false)));

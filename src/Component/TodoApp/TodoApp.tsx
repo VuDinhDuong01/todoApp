@@ -10,9 +10,9 @@ import { TodoList } from "../TodoList/TodoList";
 import { changeFilterToggle, changeToggle } from "../../Redux/SliceToggle";
 import { filterTodo } from "../../Redux/SliceTodo";
 import { Button } from "../Button/Button";
+import {Select} from '../Select/Select'
 
 export const TodoApp = () => {
-  
   const { t } = useTranslation();
   const refApp = useRef<HTMLDivElement>(null);
   const [language, setLanguate] = useState("Tiếng Việt");
@@ -33,7 +33,6 @@ export const TodoApp = () => {
     i18n.changeLanguage(lng);
     setLanguate(lng === "en" ? "English" : "Tiếng Việt");
   };
-
 
   const handleShow = () => {
     setIsShow((prev) => !prev);
@@ -109,8 +108,8 @@ export const TodoApp = () => {
         >
           {t("todo.addStack")}
         </button> */}
-        <Button  onClick={handleAddStack}> {t("todo.addStack")}</Button>
-        <select
+        <Button onClick={handleAddStack}> {t("todo.addStack")}</Button>
+        {/* <select
           className="border-none h-[30px]"
           onChange={(e) => {
             dispatch(filterTodo(e.target.value));
@@ -120,7 +119,13 @@ export const TodoApp = () => {
           <option value="All"> {t("todo.all")}</option>
           <option value="Incomplete"> {t("todo.Incomplete")}</option>
           <option value="Completed"> {t("todo.Completed")}</option>
-        </select>
+        </select> */}
+       <Select  onChange={(e) => {
+            dispatch(filterTodo(e.target.value));
+            dispatch(dispatch(changeFilterToggle(false)));
+          }}>   <option value="All"> {t("todo.all")}</option>
+          <option value="Incomplete"> {t("todo.Incomplete")}</option>
+          <option value="Completed"> {t("todo.Completed")}</option></Select>
       </div>
       <TodoList />
     </div>

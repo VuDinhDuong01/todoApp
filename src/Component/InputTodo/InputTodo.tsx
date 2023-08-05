@@ -14,6 +14,7 @@ import {
 import { todo } from "../../types/todo.type";
 import { RootState } from "../../Redux/store";
 import { Button } from "../Button/Button";
+import { Select } from "../Select/Select";
 
 export const InputTodo = () => {
   const { t } = useTranslation();
@@ -98,7 +99,7 @@ export const InputTodo = () => {
           <label htmlFor="" className="text-[white] font-semibold ">
             {t("todo.Status")}
           </label>
-          <select
+          {/* <select
             className="h-[45px] border rounded-md"
             value={todo?.complete}
             onChange={(e) =>
@@ -107,11 +108,21 @@ export const InputTodo = () => {
           >
             <option value="Incomplete"> {t("todo.Incomplete")}</option>
             <option value="Completed">{t("todo.Completed")}</option>
-          </select>
+          </select> */}
+          <Select
+            value={todo?.complete}
+            onChange={(e) =>
+              setTodo((prev) => ({ ...prev, complete: e.target.value }))
+            }
+          >
+            
+            <option value="Incomplete"> {t("todo.Incomplete")}</option>
+            <option value="Completed">{t("todo.Completed")}</option>
+          </Select>
         </div>
 
         <div className="flex items-center gap-3 py-3">
-           <Button> {Todo !== null ? t("todo.edit") : t("todo.add")}</Button>
+          <Button> {Todo !== null ? t("todo.edit") : t("todo.add")}</Button>
           <Button onClick={handleDelete}> {t("todo.cancel")}</Button>
         </div>
       </form>
