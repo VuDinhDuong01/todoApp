@@ -1,0 +1,17 @@
+{
+    "todo":{
+        "todoList":"todoList",
+        "addStack":"Add Stack",
+        "all":"All",
+        "Incomplete":"Incomplete",
+        "Completed":"Completed",
+        "Title":"Title",
+        "Status":"Status",
+        "addTodo":"Add Todo",
+        "cancel":"Cancel",
+        "edit":"Edit",
+        "add":"Add",
+        "editTodo":"Edit Todo"
+
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "todo":{
+        "todoList":"Những việc cần làm",
+        "addStack":"Thêm công việc",
+        "all":"Tất cả",
+        "Incomplete":"Chưa hoàn thành",
+        "Completed":"Hoàn thành",
+        "Title":"Tiêu đề",
+        "Status":"Trạng thái",
+        "addTodo":"Thêm công việc",
+        "add":"Thêm",
+        "cancel":"Hủy bỏ",
+        "edit":"Sửa",
+        "editTodo":"Sửa Todo"
+    }
+}
