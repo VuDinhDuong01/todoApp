@@ -12,6 +12,7 @@ import { filterTodo } from "../../Redux/SliceTodo";
 import { Button } from "../Button/Button";
 
 export const TodoApp = () => {
+  
   const { t } = useTranslation();
   const refApp = useRef<HTMLDivElement>(null);
   const [language, setLanguate] = useState("Tiếng Việt");
@@ -110,7 +111,6 @@ export const TodoApp = () => {
         </button> */}
         <Button  onClick={handleAddStack}> {t("todo.addStack")}</Button>
         <select
-          
           className="border-none h-[30px]"
           onChange={(e) => {
             dispatch(filterTodo(e.target.value));
