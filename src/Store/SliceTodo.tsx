@@ -62,7 +62,6 @@ export const sliceTodo = createSlice({
       } else if (filterType === "Incomplete") {
         state.filteredList = state.listTodo.filter((todo) => !todo.checkInput);
       } else {
-        
         state.filteredList = state.listTodo.filter((todo) => todo.checkInput);
       }
     },
@@ -120,6 +119,10 @@ export const sliceTodo = createSlice({
             ...state.filteredList[index],
             checkInput: !state.filteredList[index].checkInput,
           };
+        }
+      });
+      state.listTodo.some((todo, index) => {
+        if (todo.id === action.payload) {
           state.listTodo[index] = {
             ...state.listTodo[index],
             checkInput: !state.listTodo[index].checkInput,

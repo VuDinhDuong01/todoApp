@@ -1,13 +1,16 @@
 import { useSelector } from "react-redux";
 
-import { RootState } from "../../Redux/store";
+import { RootState } from "../../Store/store";
 import { TodoAppItem } from "../TodoAppItem/TodoAppItem";
 import { NotTodo } from "../NotTodo/NotTodo";
 export const TodoList = () => {
+
   const { listTodo } = useSelector(
     (state: RootState) => state.changeToogle.todos
   );
-  
+
+
+
   const { filteredList } = useSelector(
     (state: RootState) => state.changeToogle.todos
   );
@@ -23,9 +26,6 @@ export const TodoList = () => {
             return <TodoAppItem key={index} todo={todo} />;
           })
         ) : (
-          // <div className="w-[100px] h-[50px] flex items-center justify-center text-[white] bg-[#666] rounded-md">
-          //   Not Todos
-          // </div>
           <NotTodo />
         )
       ) : filteredList.length > 0 ? (
@@ -33,9 +33,6 @@ export const TodoList = () => {
           return <TodoAppItem key={index} todo={todo} />;
         })
       ) : (
-        // <div className="w-[100px] h-[50px] flex items-center justify-center text-[white] bg-[#666] rounded-md">
-        //   Not Todos
-        // </div>
         <NotTodo />
       )}
     </div>

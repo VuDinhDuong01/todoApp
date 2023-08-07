@@ -2,7 +2,7 @@ import {useSelector} from "react-redux"
 
 import { InputTodo } from "./Component/InputTodo/InputTodo";
 import { TodoApp } from "./Component/TodoApp/TodoApp";
-import { RootState } from "./Redux/store";
+import { RootState } from "./Store/store";
 function App() {
   const {toggle}= useSelector((state:RootState)=>state.changeToogle.toggle)
  

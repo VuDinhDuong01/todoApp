@@ -4,5 +4,4 @@ export interface todo {
     checkInput:boolean;
     id:string,
     date: string
-     
   }

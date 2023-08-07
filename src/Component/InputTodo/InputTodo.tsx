@@ -3,16 +3,16 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { changeToggle } from "../../Redux/SliceToggle";
+import { changeToggle } from "../../Store/SliceToggle";
 import {
   addTodo,
   endEditTodo,
   endEditTodoFilter,
   startEditTodo,
   startEditTodoFilter,
-} from "../../Redux/SliceTodo";
+} from "../../Store/SliceTodo";
 import { todo } from "../../types/todo.type";
-import { RootState } from "../../Redux/store";
+import { RootState } from "../../Store/store";
 import { Button } from "../Button/Button";
 import { Select } from "../Select/Select";
 

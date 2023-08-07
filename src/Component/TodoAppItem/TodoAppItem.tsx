@@ -10,9 +10,9 @@ import {
   deleteOneTodoFilter,
   startEditTodo,
   startEditTodoFilter,
-} from "../../Redux/SliceTodo";
-import { changeToggle } from "../../Redux/SliceToggle";
-import { RootState } from "../../Redux/store";
+} from "../../Store/SliceTodo";
+import { changeToggle } from "../../Store/SliceToggle";
+import { RootState } from "../../Store/store";
 
 interface todoItemTypes {
   todo: todoType;
