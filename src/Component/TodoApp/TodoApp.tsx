@@ -61,8 +61,8 @@ export const TodoApp = () => {
           className={classNames(
             "w-[40px] h-[40px]  rounded-[50%]  flex items-center justify-center",
             {
-              "bg-[#666]": mode === false,
-              "bg-[white]": mode === true,
+              "bg-[#666]": mode ===false,
+              "bg-[white]": mode===true,
             }
           )}
           onClick={handleMole}

@@ -1,8 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
 
-import { todo } from "../types/todo.type";
+import { todo } from "../Types/todo.type";
 import { dateTodo } from "../Utils/date";
 
 interface initialState {
@@ -10,16 +9,18 @@ interface initialState {
   Todo: todo | null;
   filteredList: todo[];
 }
+
 const initialState: initialState = {
   listTodo: [],
   filteredList: [],
   Todo: null,
 };
+
 export const sliceTodo = createSlice({
   name: "toggle",
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<todo>) => {
+    addTodo: (state: initialState, action: PayloadAction<todo>) => {
       state.listTodo.push({
         ...action.payload,
         checkInput: true && action.payload.complete === "Completed",
@@ -27,7 +28,7 @@ export const sliceTodo = createSlice({
         date: dateTodo(),
       });
     },
-    deleteOneTodo: (state, action: PayloadAction<string>) => {
+    deleteOneTodo: (state: initialState, action: PayloadAction<string>) => {
       const findIndexTodo = state.listTodo.findIndex(
         (todo) => todo.id === action.payload
       );
@@ -36,14 +37,20 @@ export const sliceTodo = createSlice({
         state.filteredList.splice(findIndexTodo, 1);
       }
     },
-    startEditTodo: (state, action: PayloadAction<string | null>) => {
+    startEditTodo: (
+      state: initialState,
+      action: PayloadAction<string | null>
+    ) => {
       const findOneTodo = state.listTodo.find(
         (todo) => todo.id === action.payload
       );
       if (findOneTodo) state.Todo = findOneTodo;
       else state.Todo = null;
     },
-    endEditTodo: (state, action: PayloadAction<{ id: string; todo: todo }>) => {
+    endEditTodo: (
+      state: initialState,
+      action: PayloadAction<{ id: string; todo: todo }>
+    ) => {
       state.listTodo.some((todo, index) => {
         if (todo.id === action.payload.id) {
           state.listTodo[index] = {
@@ -55,7 +62,7 @@ export const sliceTodo = createSlice({
         }
       });
     },
-    filterTodo: (state, action: PayloadAction<string>) => {
+    filterTodo: (state: initialState, action: PayloadAction<string>) => {
       const filterType = action.payload;
       if (filterType === "All") {
         state.filteredList = state.listTodo;
@@ -65,7 +72,7 @@ export const sliceTodo = createSlice({
         state.filteredList = state.listTodo.filter((todo) => todo.checkInput);
       }
     },
-    checkboxInput: (state, action: PayloadAction<string>) => {
+    checkboxInput: (state: initialState, action: PayloadAction<string>) => {
       state.listTodo.some((todo, index) => {
         if (todo.id === action.payload) {
           state.listTodo[index] = {
@@ -75,7 +82,11 @@ export const sliceTodo = createSlice({
         }
       });
     },
-    deleteOneTodoFilter: (state, action: PayloadAction<string>) => {
+
+    deleteOneTodoFilter: (
+      state: initialState,
+      action: PayloadAction<string>
+    ) => {
       const findIndexTodo = state.filteredList.findIndex(
         (todo) => todo.id === action.payload
       );
@@ -84,7 +95,10 @@ export const sliceTodo = createSlice({
         state.listTodo.splice(findIndexTodo, 1);
       }
     },
-    startEditTodoFilter: (state, action: PayloadAction<string | null>) => {
+    startEditTodoFilter: (
+      state: initialState,
+      action: PayloadAction<string | null>
+    ) => {
       const findOneTodo = state.filteredList.find(
         (todo) => todo.id === action.payload
       );
@@ -112,7 +126,10 @@ export const sliceTodo = createSlice({
         }
       });
     },
-    checkboxInputFilter: (state, action: PayloadAction<string>) => {
+    checkboxInputFilter: (
+      state: initialState,
+      action: PayloadAction<string>
+    ) => {
       state.filteredList.some((todo, index) => {
         if (todo.id === action.payload) {
           state.filteredList[index] = {

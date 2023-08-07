@@ -10,15 +10,8 @@ export const Select = ({children, onChange, value}:SelectType) => {
     <select
     value={value}
     className="border-none h-[45px]"
-    // onChange={(e) => {
-    //   dispatch(filterTodo(e.target.value));
-    //   dispatch(dispatch(changeFilterToggle(false)));
-    // }}
     onChange={onChange}
   >
-    {/* <option value="All"> {t("todo.all")}</option>
-    <option value="Incomplete"> {t("todo.Incomplete")}</option>
-    <option value="Completed"> {t("todo.Completed")}</option> */}
     {children}
   </select>
   )

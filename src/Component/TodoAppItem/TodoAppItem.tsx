@@ -2,7 +2,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineEdit } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 
-import { todo as todoType } from "../../types/todo.type";
+import { todo as todoType } from "../../Types/todo.type";
 import {
   checkboxInput,
   checkboxInputFilter,

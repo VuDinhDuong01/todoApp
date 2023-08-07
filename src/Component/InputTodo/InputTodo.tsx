@@ -11,7 +11,7 @@ import {
   startEditTodo,
   startEditTodoFilter,
 } from "../../Store/SliceTodo";
-import { todo } from "../../types/todo.type";
+import { todo } from "../../Types/todo.type";
 import { RootState } from "../../Store/store";
 import { Button } from "../Button/Button";
 import { Select } from "../Select/Select";
@@ -19,6 +19,7 @@ import { Select } from "../Select/Select";
 export const InputTodo = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
   const { Todo } = useSelector((state: RootState) => state.changeToogle.todos);
   const { filterToggle } = useSelector(
     (state: RootState) => state.changeToogle.toggle
@@ -53,12 +54,13 @@ export const InputTodo = () => {
     dispatch(changeToggle(false));
     dispatch(endEditTodo({ id: Todo?.id as string, todo: todo }));
   };
-  const handleendEditTodoFilter = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleEndEditTodoFilter = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(startEditTodoFilter(null));
     dispatch(changeToggle(false));
     dispatch(endEditTodoFilter({ id: Todo?.id as string, todo: todo }));
   };
+
   return (
     <div className="py-5 px-5 bg-[#ccc] w-[400px]   rounded-md">
       <div className="w-full flex justify-end">
@@ -79,7 +81,7 @@ export const InputTodo = () => {
             ? Todo !== null
               ? handleFinshEdit
               : handleAddStack
-            : handleendEditTodoFilter
+            : handleEndEditTodoFilter
         }
       >
         <div className="flex flex-col py-4">
@@ -99,16 +101,6 @@ export const InputTodo = () => {
           <label htmlFor="" className="text-[white] font-semibold ">
             {t("todo.Status")}
           </label>
-          {/* <select
-            className="h-[45px] border rounded-md"
-            value={todo?.complete}
-            onChange={(e) =>
-              setTodo((prev) => ({ ...prev, complete: e.target.value }))
-            }
-          >
-            <option value="Incomplete"> {t("todo.Incomplete")}</option>
-            <option value="Completed">{t("todo.Completed")}</option>
-          </select> */}
           <Select
             value={todo?.complete}
             onChange={(e) =>

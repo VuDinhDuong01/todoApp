@@ -3,17 +3,16 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../Store/store";
 import { TodoAppItem } from "../TodoAppItem/TodoAppItem";
 import { NotTodo } from "../NotTodo/NotTodo";
-export const TodoList = () => {
 
+export const TodoList = () => {
   const { listTodo } = useSelector(
     (state: RootState) => state.changeToogle.todos
   );
 
-
-
   const { filteredList } = useSelector(
     (state: RootState) => state.changeToogle.todos
   );
+
   const { filterToggle } = useSelector(
     (state: RootState) => state.changeToogle.toggle
   );
